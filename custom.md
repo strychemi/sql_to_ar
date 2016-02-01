@@ -28,11 +28,11 @@ HAVING COUNT(*)=0;
 3. An average of each user's post count.
 
 ```
-User.join("LEFT OUTER JOIN posts ON user_id=users.id").group("users.id").average("IFNULL(posts.id, 0)");
+User.join("LEFT OUTER JOIN posts ON user_id=users.id").group("users.id").average("IFNULL(posts.id, 0)")
 ```
 
 ``` sql
 SELECT username, AVG(IFNULL(posts.id, 0))
 FROM users LEFT OUTER JOIN posts ON user_id=users.id
-GROUP BY users.id
+GROUP BY users.id;
 ```
